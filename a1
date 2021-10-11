@@ -1,2 +1,19 @@
-hi
-this is a1 file
+pipeline{
+    agent any
+    
+    environment{
+        PATH = "/opt/mvn3/bin:$PATH"
+    }
+    stages{
+        stage("Git Checkout"){
+            steps{
+                git 'https://github.com/asha996699/first-git'
+            }
+        }
+        stage("Maven Build"){
+             steps{
+                  sh "mvn clean package"
+        
+        }
+    }
+}
